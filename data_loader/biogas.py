@@ -23,13 +23,17 @@ def load_data(hparams, mode='AT305', normalise='global_max', shuffle=False):
 
     if mode == 'AT305':
         dataset = prodn['AT305'].values[:10000]
-        dataset = [dataset[i : i + hparams.in_seq_len * hparams.input_dim + hparams.out_seq_len + 1] \
-                   for i in range(0, 10000 - hparams.in_seq_len * hparams.input_dim - hparams.out_seq_len)]
-        dataset = np.nan_to_num(dataset)
-        if shuffle:
-            np.random.seed(230)
-            np.random.shuffle(dataset)
-        mask = np.isfinite(dataset)
+    else:
+        dataset = prodn[mode.split()].values[:10000]
+
+    dataset = [dataset[i : i + hparams.in_seq_len * hparams.input_dim + hparams.out_seq_len + 1] \
+               for i in range(0, 10000 - hparams.in_seq_len * hparams.input_dim - hparams.out_seq_len)]
+
+    if shuffle:
+        np.random.seed(230)
+        np.random.shuffle(dataset)
+    mask = np.isfinite(dataset)
+    dataset = np.nan_to_num(dataset)
     
     # Split into training, validation and test datasets
     train, val, test = split(hparams, dataset, mask)

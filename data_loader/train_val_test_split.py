@@ -27,10 +27,13 @@ def split(hparams, dataset, mask, normalise='global_max'):
     # x.shape = (n_obs, in_seq_len, input_dim)
     x = np.array([dataset[:,pos:pos+in_len] for pos in range(0,end_pos,hparams.in_seq_len)])
     x = np.rollaxis(x, 0, 3) / x_max
+    x = np.reshape(x,[x.shape[0], x.shape[1], -1])
 
     # Create y dataset
-    y =   dataset[:,end_pos+in_len:end_pos+in_len+out_len, np.newaxis] / x_max
+    y = dataset[:,end_pos+in_len:end_pos+in_len+out_len, np.newaxis] / x_max
+    y = np.reshape(y,[y.shape[0], y.shape[1], -1])
     y_mask = mask[:,end_pos+in_len:end_pos+in_len+out_len, np.newaxis]
+    y_mask = np.reshape(y_mask,[y_mask.shape[0], y_mask.shape[1], -1])
 
     #####################
     # Build into datasets
@@ -51,9 +54,9 @@ def split(hparams, dataset, mask, normalise='global_max'):
     dataset_val = dataset_val.batch(hparams.batch_size, drop_remainder=True)
 
     dataset_test = tf.data.Dataset.from_tensor_slices(\
-                (x[val_pos:].astype(np.float32),
-                 y[val_pos:].astype(np.float32),
-                 y_mask[val_pos:].astype(np.float32)))
+                    (x[val_pos:].astype(np.float32),
+                     y[val_pos:].astype(np.float32),
+                     y_mask[val_pos:].astype(np.float32)))
     dataset_test = dataset_val.batch(hparams.batch_size, drop_remainder=True)
 
     return dataset, dataset_val, dataset_test
