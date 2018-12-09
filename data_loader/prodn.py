@@ -8,6 +8,13 @@ def load_data(hparams, mode='mini', normalise='global_max'):
     """
     Arguments:
         hparams: tf hyperparameters
+        mode:
+            -'mini': Get dataset with only one batch
+            -'midi': Get dataset with one year of data
+            -'maxi': Get dataset with each year's data
+        normalise:
+            -'global_max': Scale all observations down according to the largest value in the dataset
+            -'local_max': Scale each observation down according to the largest value in the row
     """ 
     # Calculate train, validate and test set sizes
     p_val, p_test = hparams.val_split, hparams.test_split
