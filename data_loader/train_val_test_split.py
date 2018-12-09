@@ -7,6 +7,9 @@ def split(hparams, dataset, mask, normalise='global_max'):
     in_len, out_len, in_dim = hparams.in_seq_len, hparams.out_seq_len, hparams.input_dim
     end_pos = in_len * (in_dim - 1) + 1
 
+    p_val, p_test = hparams.val_split, hparams.test_split
+    p_train = 1 - p_val - p_test
+
     # Calculate normalisation factor
     if normalise == 'local_max':
         # Normalise the data line by line
@@ -32,8 +35,8 @@ def split(hparams, dataset, mask, normalise='global_max'):
     #####################
     # Build into datasets
     #####################
-    train_pos = int(x.shape[0] * hparams.train_split)
-    val_pos   = int(x.shape[0] * (hparams.train_split + hparams.val_split))
+    train_pos = int(x.shape[0] * p_train)
+    val_pos   = int(x.shape[0] * (p_train + p_val))
 
     dataset = tf.data.Dataset.from_tensor_slices(\
                 (x[:train_pos].astype(np.float32),
