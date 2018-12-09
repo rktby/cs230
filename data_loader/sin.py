@@ -17,19 +17,14 @@ def load_data(hparams, mode='AT305', normalise='global_max', shuffle=False):
     # Calculate train, validate and test set sizes
     p_val, p_test = hparams.val_split, hparams.test_split
     p_train = 1 - p_val - p_test
+    n_obs = int(hparams.batch_size / p_train)
     
-    # Load dataset
-    prodn = pd.read_csv('../../Data/cr2c_opdata_TMP_PRESSURE_TEMP_WATER_COND_GAS_PH_DPI_LEVEL.csv')
-
-    if mode == 'AT305':
-        dataset = prodn['AT305'].values[:10000]
-        dataset = [dataset[i : i + hparams.in_seq_len * hparams.input_dim + hparams.out_seq_len + 1] \
-                   for i in range(0, 10000 - hparams.in_seq_len * hparams.input_dim - hparams.out_seq_len)]
-        dataset = np.nan_to_num(dataset)
-        if shuffle:
-            np.random.seed(230)
-            np.random.shuffle(dataset)
-        mask = np.isfinite(dataset)
+    dataset = np.zeros((n_obs, 10 * hparams.in_seq_len))
+    dataset[1:,0] = np.random.randn(n_obs-1)
+    for i in range(dataset.shape[1] - 1):
+        dataset[:,i+1] = dataset[:,i] + 2 * np.pi / hparams.in_seq_len
+    dataset = np.sin(dataset) + 1
+    mask = np.ones_like(dataset)
     
     # Split into training, validation and test datasets
     train, val, test = split(hparams, dataset, mask)
