@@ -12,7 +12,7 @@ def train_model(model, optimizer, dataset, hparams, epochs = 10, verbose = True)
         epoch_start = time.time()
         total_loss, total_accuracy = 0, 0
 
-        for (batch, (inp, targ, mask)) in enumerate(dataset):
+        for (batch, (inp, targ, mask, rescalar)) in enumerate(dataset):
             # Make predictions and calculate loss
             with tf.GradientTape() as tape:
                 pred = model(inp, mask)
