@@ -1,5 +1,7 @@
 import tensorflow as tf
-import time
+import numpy as np
+import h5py
+import time, datetime, os
 
 def train_model(model, optimizer, dataset, hparams, epochs = 10, verbose = True, dev_dataset=None):
 
@@ -71,3 +73,31 @@ def loss_function(real, preds, variables, lambd = 1e-4):
 
     accuracy, loss = mse_loss, mse_loss + l2_loss
     return loss, accuracy
+
+def save_model(model, optimizer, dataset, hparams, name, path='../outputs/'):
+    """
+    Method for saving model, parameters, hyperparameters and outputs
+    """
+    path += name + '/' + str(datetime.datetime.now()) + '/'
+    os.mkdir(path)
+
+    # Save model and parameters
+    checkpoint = tf.train.Checkpoint(optimizer=optimizer, model=model)
+    checkpoint.save(file_prefix = path)
+
+    # Save hyperparameters
+    with open(path + 'hparams.json', 'w') as file:
+        file.write(hparams.to_json())
+
+    # Save predictions and actual data
+    preds, acts, maxs = [], [], []
+    for inp, target, mask, x_max in dataset:
+        pred = model(inp, mask)
+        preds.extend(np.array(pred))
+        acts.extend(np.array(target))
+        maxs.extend(np.array(x_max))
+
+    with h5py.File(path + 'data.hdf5', 'w') as file:
+        file.create_dataset('actual', data=np.array(acts))
+        file.create_dataset('predicted', data=np.array(preds))
+        file.create_dataset('x_max', data=np.array(x_max))
