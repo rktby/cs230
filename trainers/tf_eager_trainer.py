@@ -78,7 +78,7 @@ def save_model(model, optimizer, dataset, hparams, name, path='../outputs/'):
     """
     Method for saving model, parameters, hyperparameters and outputs
     """
-    path += name + '/' + str(datetime.datetime.now()) + '/'
+    path += name + '_' + datetime.datetime.now().strftime('%y-%m-%d-%H_%M_%S') + '/'
     os.mkdir(path)
 
     # Save model and parameters
