@@ -13,8 +13,7 @@ def split(hparams, dataset, mask, normalise='global_max'):
     # Calculate normalisation factor
     if normalise == 'local_max':
         # Normalise the data line by line
-        x_max = np.max(dataset[:,:in_len * in_dim], axis=1, keepdims=True)
-        x_max[x_max==0] = x_max.max()
+        x_max = np.max(dataset[:,:in_len * in_dim], axis=1, keepdims=True) + hparams.norm_epsilon
     elif normalise == 'global_max':
         # Normalise the data based on global maximum
         x_max = np.max(dataset, axis=(0,1), keepdims=True)

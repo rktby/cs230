@@ -11,11 +11,12 @@ def hparams():
         output_channels=2,
         num_layers=1,
         neurons_unit=32,
-        learning_rate = 10 ** -3.5,
+        learning_rate = 10 ** -3,
         lr_decay = 0.99,
         lambd = 1e-6,
         train_split = 0.8,
         val_split = 0.1,
         test_split = 0.1,
+        norm_epsilon = 1e-12,
         datagen = 'prodn',
         logs_path = '/tmp/tensorflow_logs')
