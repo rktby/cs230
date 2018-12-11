@@ -36,6 +36,19 @@ def load_data(hparams, mode='AT305', normalise='global_max', shuffle=False):
     dataset = np.nan_to_num(dataset)
     
     # Split into training, validation and test datasets
-    train, val, test = split(hparams, dataset, mask)
+    train, dev, test = split(hparams, dataset, mask, normalise=normalise)
     
-    return train, val, test
+    return train, dev, test
+
+def x_var(hparams, mode='AT305', normalise='global_max'):
+    prodn = pd.read_csv('../../Data/cr2c_opdata_TMP_PRESSURE_TEMP_WATER_COND_GAS_PH_DPI_LEVEL.csv')
+
+    if mode == 'AT305':
+        dataset = prodn['AT305'].values[:10000]
+    else:
+        dataset = prodn[mode.split()].values[:10000]
+
+    dataset = [dataset[i : i + hparams.in_seq_len * hparams.input_dim + hparams.out_seq_len + 1] \
+               for i in range(0, 10000 - hparams.in_seq_len * hparams.input_dim - hparams.out_seq_len)]
+
+    return np.var(dataset, axis=(0,1))
