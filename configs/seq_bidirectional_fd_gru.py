@@ -3,8 +3,8 @@ import tensorflow as tf
 def hparams():
     return tf.contrib.training.HParams(
         batch_size=800,
-        in_seq_len=24,
-        input_dim=5,
+        in_seq_len=120,
+        input_dim=1,
         input_channels=2,
         out_seq_len=24,
         output_dim=1,

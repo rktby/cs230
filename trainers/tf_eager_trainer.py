@@ -74,7 +74,7 @@ def loss_function(real, preds, variables, lambd = 1e-4):
     accuracy, loss = mse_loss, mse_loss + l2_loss
     return loss, accuracy
 
-def save_model(model, optimizer, dataset, hparams, name, path='../outputs/'):
+def save_model(model, optimizer, dataset, hparams, name, stats=None, path='../outputs/'):
     """
     Method for saving model, parameters, hyperparameters and outputs
     """
@@ -101,3 +101,6 @@ def save_model(model, optimizer, dataset, hparams, name, path='../outputs/'):
         file.create_dataset('actual', data=np.array(acts))
         file.create_dataset('predicted', data=np.array(preds))
         file.create_dataset('x_max', data=np.array(x_max))
+        if stats != None:
+            for stat_name, stat in stats.items():
+                file.create_dataset('stat_' + stat_name, data=np.array(stat))
