@@ -1,0 +1,196 @@
+ı;·CâŒ
+,
+	model
+	optimizer
+save_counter
+
+encoder
+decoder
+
+beta1_power
+beta2_powermm m!m"m#m$m%m&m'm(m)m*m+m,v-v.v/v0v1v2v3v4v5v6v7v8v9v:
+IG
+VARIABLE_VALUEsave_counter'save_counter/.ATTRIBUTES/VARIABLE_VALUE
+	
+gru
+;
+		embedding
+
+gru
+
+fc_out
+W1
+W2
+V
+QO
+VARIABLE_VALUEbeta1_power0optimizer/beta1_power/.ATTRIBUTES/VARIABLE_VALUE
+QO
+VARIABLE_VALUEbeta2_power0optimizer/beta2_power/.ATTRIBUTES/VARIABLE_VALUE
+R
+cellF
+OBJECT_CONFIG_JSON0model/encoder/gru/.ATTRIBUTES/OBJECT_CONFIG_JSON
+NL
+OBJECT_CONFIG_JSON6model/decoder/embedding/.ATTRIBUTES/OBJECT_CONFIG_JSON
+R
+cellF
+OBJECT_CONFIG_JSON0model/decoder/gru/.ATTRIBUTES/OBJECT_CONFIG_JSON
+a
+
+kernel
+biasI
+OBJECT_CONFIG_JSON3model/decoder/fc_out/.ATTRIBUTES/OBJECT_CONFIG_JSON
+]
+
+kernel
+biasE
+OBJECT_CONFIG_JSON/model/decoder/W1/.ATTRIBUTES/OBJECT_CONFIG_JSON
+]
+
+kernel
+biasE
+OBJECT_CONFIG_JSON/model/decoder/W2/.ATTRIBUTES/OBJECT_CONFIG_JSON
+\
+
+kernel
+biasD
+OBJECT_CONFIG_JSON.model/decoder/V/.ATTRIBUTES/OBJECT_CONFIG_JSON
+y
+
+kernel
+recurrent_kernel
+biasK
+OBJECT_CONFIG_JSON5model/encoder/gru/cell/.ATTRIBUTES/OBJECT_CONFIG_JSON
+y
+
+kernel
+recurrent_kernel
+biasK
+OBJECT_CONFIG_JSON5model/decoder/gru/cell/.ATTRIBUTES/OBJECT_CONFIG_JSON
+|z
+VARIABLE_VALUE0seq2_seq_11/decoder_11/decoder_affine_out/kernel6model/decoder/fc_out/kernel/.ATTRIBUTES/VARIABLE_VALUE
+xv
+VARIABLE_VALUE.seq2_seq_11/decoder_11/decoder_affine_out/bias4model/decoder/fc_out/bias/.ATTRIBUTES/VARIABLE_VALUE
+us
+VARIABLE_VALUE-seq2_seq_11/decoder_11/decoder_attn_W1/kernel2model/decoder/W1/kernel/.ATTRIBUTES/VARIABLE_VALUE
+qo
+VARIABLE_VALUE+seq2_seq_11/decoder_11/decoder_attn_W1/bias0model/decoder/W1/bias/.ATTRIBUTES/VARIABLE_VALUE
+us
+VARIABLE_VALUE-seq2_seq_11/decoder_11/decoder_attn_W2/kernel2model/decoder/W2/kernel/.ATTRIBUTES/VARIABLE_VALUE
+qo
+VARIABLE_VALUE+seq2_seq_11/decoder_11/decoder_attn_W2/bias0model/decoder/W2/bias/.ATTRIBUTES/VARIABLE_VALUE
+sq
+VARIABLE_VALUE,seq2_seq_11/decoder_11/decoder_attn_V/kernel1model/decoder/V/kernel/.ATTRIBUTES/VARIABLE_VALUE
+om
+VARIABLE_VALUE*seq2_seq_11/decoder_11/decoder_attn_V/bias/model/decoder/V/bias/.ATTRIBUTES/VARIABLE_VALUE
+wu
+VARIABLE_VALUE)seq2_seq_11/encoder_11/encoder_gru/kernel8model/encoder/gru/cell/kernel/.ATTRIBUTES/VARIABLE_VALUE
+Œ‰
+VARIABLE_VALUE3seq2_seq_11/encoder_11/encoder_gru/recurrent_kernelBmodel/encoder/gru/cell/recurrent_kernel/.ATTRIBUTES/VARIABLE_VALUE
+sq
+VARIABLE_VALUE'seq2_seq_11/encoder_11/encoder_gru/bias6model/encoder/gru/cell/bias/.ATTRIBUTES/VARIABLE_VALUE
+wu
+VARIABLE_VALUE)seq2_seq_11/decoder_11/decoder_gru/kernel8model/decoder/gru/cell/kernel/.ATTRIBUTES/VARIABLE_VALUE
+Œ‰
+VARIABLE_VALUE3seq2_seq_11/decoder_11/decoder_gru/recurrent_kernelBmodel/decoder/gru/cell/recurrent_kernel/.ATTRIBUTES/VARIABLE_VALUE
+sq
+VARIABLE_VALUE'seq2_seq_11/decoder_11/decoder_gru/bias6model/decoder/gru/cell/bias/.ATTRIBUTES/VARIABLE_VALUE
+›
+VARIABLE_VALUE5seq2_seq_11/decoder_11/decoder_affine_out/kernel/AdamRmodel/decoder/fc_out/kernel/.OPTIMIZER_SLOT/optimizer/m/.ATTRIBUTES/VARIABLE_VALUE
+š—
+VARIABLE_VALUE3seq2_seq_11/decoder_11/decoder_affine_out/bias/AdamPmodel/decoder/fc_out/bias/.OPTIMIZER_SLOT/optimizer/m/.ATTRIBUTES/VARIABLE_VALUE
+—”
+VARIABLE_VALUE2seq2_seq_11/decoder_11/decoder_attn_W1/kernel/AdamNmodel/decoder/W1/kernel/.OPTIMIZER_SLOT/optimizer/m/.ATTRIBUTES/VARIABLE_VALUE
+“
+VARIABLE_VALUE0seq2_seq_11/decoder_11/decoder_attn_W1/bias/AdamLmodel/decoder/W1/bias/.OPTIMIZER_SLOT/optimizer/m/.ATTRIBUTES/VARIABLE_VALUE
+—”
+VARIABLE_VALUE2seq2_seq_11/decoder_11/decoder_attn_W2/kernel/AdamNmodel/decoder/W2/kernel/.OPTIMIZER_SLOT/optimizer/m/.ATTRIBUTES/VARIABLE_VALUE
+“
+VARIABLE_VALUE0seq2_seq_11/decoder_11/decoder_attn_W2/bias/AdamLmodel/decoder/W2/bias/.OPTIMIZER_SLOT/optimizer/m/.ATTRIBUTES/VARIABLE_VALUE
+•’
+VARIABLE_VALUE1seq2_seq_11/decoder_11/decoder_attn_V/kernel/AdamMmodel/decoder/V/kernel/.OPTIMIZER_SLOT/optimizer/m/.ATTRIBUTES/VARIABLE_VALUE
+‘
+VARIABLE_VALUE/seq2_seq_11/decoder_11/decoder_attn_V/bias/AdamKmodel/decoder/V/bias/.OPTIMIZER_SLOT/optimizer/m/.ATTRIBUTES/VARIABLE_VALUE
+™–
+VARIABLE_VALUE.seq2_seq_11/encoder_11/encoder_gru/kernel/AdamTmodel/encoder/gru/cell/kernel/.OPTIMIZER_SLOT/optimizer/m/.ATTRIBUTES/VARIABLE_VALUE
+­ª
+VARIABLE_VALUE8seq2_seq_11/encoder_11/encoder_gru/recurrent_kernel/Adam^model/encoder/gru/cell/recurrent_kernel/.OPTIMIZER_SLOT/optimizer/m/.ATTRIBUTES/VARIABLE_VALUE
+•’
+VARIABLE_VALUE,seq2_seq_11/encoder_11/encoder_gru/bias/AdamRmodel/encoder/gru/cell/bias/.OPTIMIZER_SLOT/optimizer/m/.ATTRIBUTES/VARIABLE_VALUE
+™–
+VARIABLE_VALUE.seq2_seq_11/decoder_11/decoder_gru/kernel/AdamTmodel/decoder/gru/cell/kernel/.OPTIMIZER_SLOT/optimizer/m/.ATTRIBUTES/VARIABLE_VALUE
+­ª
+VARIABLE_VALUE8seq2_seq_11/decoder_11/decoder_gru/recurrent_kernel/Adam^model/decoder/gru/cell/recurrent_kernel/.OPTIMIZER_SLOT/optimizer/m/.ATTRIBUTES/VARIABLE_VALUE
+•’
+VARIABLE_VALUE,seq2_seq_11/decoder_11/decoder_gru/bias/AdamRmodel/decoder/gru/cell/bias/.OPTIMIZER_SLOT/optimizer/m/.ATTRIBUTES/VARIABLE_VALUE
+ 
+VARIABLE_VALUE7seq2_seq_11/decoder_11/decoder_affine_out/kernel/Adam_1Rmodel/decoder/fc_out/kernel/.OPTIMIZER_SLOT/optimizer/v/.ATTRIBUTES/VARIABLE_VALUE
+œ™
+VARIABLE_VALUE5seq2_seq_11/decoder_11/decoder_affine_out/bias/Adam_1Pmodel/decoder/fc_out/bias/.OPTIMIZER_SLOT/optimizer/v/.ATTRIBUTES/VARIABLE_VALUE
+™–
+VARIABLE_VALUE4seq2_seq_11/decoder_11/decoder_attn_W1/kernel/Adam_1Nmodel/decoder/W1/kernel/.OPTIMIZER_SLOT/optimizer/v/.ATTRIBUTES/VARIABLE_VALUE
+•’
+VARIABLE_VALUE2seq2_seq_11/decoder_11/decoder_attn_W1/bias/Adam_1Lmodel/decoder/W1/bias/.OPTIMIZER_SLOT/optimizer/v/.ATTRIBUTES/VARIABLE_VALUE
+™–
+VARIABLE_VALUE4seq2_seq_11/decoder_11/decoder_attn_W2/kernel/Adam_1Nmodel/decoder/W2/kernel/.OPTIMIZER_SLOT/optimizer/v/.ATTRIBUTES/VARIABLE_VALUE
+•’
+VARIABLE_VALUE2seq2_seq_11/decoder_11/decoder_attn_W2/bias/Adam_1Lmodel/decoder/W2/bias/.OPTIMIZER_SLOT/optimizer/v/.ATTRIBUTES/VARIABLE_VALUE
+—”
+VARIABLE_VALUE3seq2_seq_11/decoder_11/decoder_attn_V/kernel/Adam_1Mmodel/decoder/V/kernel/.OPTIMIZER_SLOT/optimizer/v/.ATTRIBUTES/VARIABLE_VALUE
+“
+VARIABLE_VALUE1seq2_seq_11/decoder_11/decoder_attn_V/bias/Adam_1Kmodel/decoder/V/bias/.OPTIMIZER_SLOT/optimizer/v/.ATTRIBUTES/VARIABLE_VALUE
+›˜
+VARIABLE_VALUE0seq2_seq_11/encoder_11/encoder_gru/kernel/Adam_1Tmodel/encoder/gru/cell/kernel/.OPTIMIZER_SLOT/optimizer/v/.ATTRIBUTES/VARIABLE_VALUE
+¯¬
+VARIABLE_VALUE:seq2_seq_11/encoder_11/encoder_gru/recurrent_kernel/Adam_1^model/encoder/gru/cell/recurrent_kernel/.OPTIMIZER_SLOT/optimizer/v/.ATTRIBUTES/VARIABLE_VALUE
+—”
+VARIABLE_VALUE.seq2_seq_11/encoder_11/encoder_gru/bias/Adam_1Rmodel/encoder/gru/cell/bias/.OPTIMIZER_SLOT/optimizer/v/.ATTRIBUTES/VARIABLE_VALUE
+›˜
+VARIABLE_VALUE0seq2_seq_11/decoder_11/decoder_gru/kernel/Adam_1Tmodel/decoder/gru/cell/kernel/.OPTIMIZER_SLOT/optimizer/v/.ATTRIBUTES/VARIABLE_VALUE
+¯¬
+VARIABLE_VALUE:seq2_seq_11/decoder_11/decoder_gru/recurrent_kernel/Adam_1^model/decoder/gru/cell/recurrent_kernel/.OPTIMIZER_SLOT/optimizer/v/.ATTRIBUTES/VARIABLE_VALUE
+—”
+VARIABLE_VALUE.seq2_seq_11/decoder_11/decoder_gru/bias/Adam_1Rmodel/decoder/gru/cell/bias/.OPTIMIZER_SLOT/optimizer/v/.ATTRIBUTES/VARIABLE_VALUE’ïŒo¹{"class_name": "Dense", "config": {"activation": "linear", "activity_regularizer": null, "bias_constraint": null, "bias_initializer": {"class_name": "Zeros", "config": {"dtype": "float32"}}, "bias_regularizer": null, "dtype": "float32", "kernel_constraint": null, "kernel_initializer": {"class_name": "VarianceScaling", "config": {"distribution": "uniform", "dtype": "float32", "mode": "fan_avg", "scale": 1.0, "seed": null}}, "kernel_regularizer": null, "name": "decoder_attn_V", "trainable": true, "units": 1, "use_bias": true}}:Ï´íp3+¿!8œ¾Á8(?
+¾?&”L¿G<?.`ı¾§øÜ>Ó	)¿*m˜¶u©¶`şe6ò[!µR™N5ˆÚ4Bg 7İ 5P5.öî=/­İI.ˆ›–,:­.ñ\-3R/SP³-“t æ{"class_name": "Dense", "config": {"activation": "linear", "activity_regularizer": null, "bias_constraint": null, "bias_initializer": {"class_name": "Zeros", "config": {"dtype": "float32"}}, "bias_regularizer": null, "dtype": "float32", "kernel_constraint": null, "kernel_initializer": {"class_name": "VarianceScaling", "config": {"distribution": "uniform", "dtype": "float32", "mode": "fan_avg", "scale": 1.0, "seed": null}}, "kernel_regularizer": null, "name": "decoder_attn_W1", "trainable": true, "units": 8, "use_bias": true}}¿-< C=…R<±Û¼ü”è¹_¼_<Âa=bÙ¼şµ~6JZ×µF´jˆ|´û[µú3M©µÙ™,p0¾,Ñ™-Ô¶+W‰>-õ~†,Uh)+d º*À¦½iÕ‘=àèù=¥Â>¯Èµ¾J™y½ Š¿ÏF?ÿx.½°ä=ÒÆ¬¾qş,¾’… ?¾ˆÖW¾ñ%Î=ç½;ˆ=5é¥>ÊmŞ>¹<>¦C$¾÷tó>Êò´¼ì‡‘¼…q¾ÑÄä>2¾> s›¾¹Hû=_¬>t‡š>Ä‡>rÛ¿ôx¿> «=%K×>\	?Œ¯À=ç?ÁÜª=¹â,=s¹Í½[é‚>9Zİ¾JÈğ¼í>?ñË¾~sİ½)‘Ì>tx¼	ÿb>(ë>?Ü±¾6?™¿ÄêÙ¾àëÿ¾½q˜>ci‘¼Ã…?†…*>.?"y>Ñ2Û´œ“Á5êÌá5ì#Şµ¨Ù5?Yµ¸É‘4·;µ+´˜}	44û¶–5JÉÉ´õÄ´k¥µŠg—5a¿Œµdh@6ª¨E6Åm¶e6˜6åĞæµj6Fâj¶q÷Ø5õ¬¶ö9Îµ2ç6Ğ¶Xï)6'Ú:¶÷/º6t™6Ô¶“úJµ¦’!6P-eµPt&6ÎTµ‹‹R6r•
+¶ÏïØ6!:U6§Z·¾~å6kÈV¶8êÁ6@?ÿ¶ìµ­5"€‰¶–\€¶†7Ñ¶gañ5UzY¶Ô¦66=y¶kÙò6kš¬6|Ò:·e?=7tz¶F­ø6Ö^·ÕCû*vR-;¼,` ’-šAm-$ü+ÿyÀ,>ĞG-?n,'Ùñ-’)É-X³
+.lEu-£t8,‹Îe-iªÒ-÷+ä.ˆÁ¥-1a‡.2M.}Åã,v¾®-›`7.;Æ-y¨.rì•-Ê“/Ü–Ç.5Ë¤-Ÿ.—Ò¹.³›O-ÿú-Øé
++ò>=.¹4^.‘œ-ùi@-Ş³
+.–v	.P<u/Tú.>KÀ/UŒ/=6.+¯ó.‹‰/†F§-X/L¬Ê.ò¦©/Ô_/˜ï0.‹Ş.®ºn/UÕ.[%/ÿš°.ŸĞú/€èº/İ,š.EĞ/ˆİ®/“t æ{"class_name": "Dense", "config": {"activation": "linear", "activity_regularizer": null, "bias_constraint": null, "bias_initializer": {"class_name": "Zeros", "config": {"dtype": "float32"}}, "bias_regularizer": null, "dtype": "float32", "kernel_constraint": null, "kernel_initializer": {"class_name": "VarianceScaling", "config": {"distribution": "uniform", "dtype": "float32", "mode": "fan_avg", "scale": 1.0, "seed": null}}, "kernel_regularizer": null, "name": "decoder_attn_W2", "trainable": true, "units": 8, "use_bias": true}}½-<C=…R<´Û¼•è¹]¼_<Âa=hÙ¼şµ~6IZ×µF´jˆ|´û[µø3O©µÙ™,p0¾,Ñ™-Ğ¶+\‰>-õ~†,Vh)+e º*ŞEÃ>Û’ş>¶¥}=Ñ´„¾Ã&½?ì¾¾U >‰Éò¾­Ş¿2FÌ¾°W½>·Íø¾ `?…j>t>â«>+Ì.¾'å?ë|}¾«×<¾«C›¾şÖ›¾q‹ì¾\À³=M•¨>­¾K>SÓÏ½HAÈ½r²“¼ò„ó>FÇa>:÷>{¹Ø¾šÎ?|@>ÿ™«¾¥¾˜yÂ>©ï=ğŞ>µş½CF—=7ü÷>iq*=¡à€>31À¾ûã?øB >¿æÊ>T®>~»?TLç>~Gí¼€4k¾úÜ¾³RR½G­0¾>Ä¾6;?pì„>^ÏF>k<?p¹¾›ìB5W°‡5ì›æ3µ@ğÌ³}†Oµá!5ìGµvøœµ¡µîş	5Û‰µ¦uˆ5iÍ»4­ú•4M#5ÌÏ>´vM5©Œy´´˜±´Kµø µ-×~µ‡€4ï—75Ìëµ¥¸ 4ÕRl´ë\´w«?³
+ƒ5$8ò40Ck´¼Ëa5ÈÃË´^¸S4*¥uµmF»µ0Å,5& "´à·¶²Â¨’5R}µ+Œ^5ç†Ñ³­n ³}<_µ¦‡L5¢çı4û|A5p´T5ÉŒ5~541ÿå´
+hµzà4;ú¦µ"š³È5<E*5Ğ®J5Ê$5ô•µC*bh*Õ+ôøï)L’†+­C¡)§ÿ÷)µ¹æ)O.*<®*ºl+¸¦à)"†µ+á\#*p[ã(Ê(µ)<‰V*Ğw'+Z ï+Õ™I*ò».,£˜*ê†Æ)%Í±(¡î@)§û(û/(lŞ'5»'Q”—&ÓÊ)®“Õ(á¬Œ,õŸ,Ãû=-¾ñ*ÿ3À,ÏJ,ÙX+µC*Û,=ä),
+Áì,¨oğ*oõ|,;Ô++$×*á))äÍ*ç·)_4*|¢*†(A )fŸ¥)\'+’¯R+d™–+_* *«ñM*q>Ï*œF#*ñV*•îzû	{"class_name": "Dense", "config": {"activation": "tanh", "activity_regularizer": null, "bias_constraint": null, "bias_initializer": {"class_name": "Zeros", "config": {"dtype": "float32"}}, "bias_regularizer": null, "dtype": null, "kernel_constraint": null, "kernel_initializer": {"class_name": "VarianceScaling", "config": {"distribution": "uniform", "dtype": "float32", "mode": "fan_avg", "scale": 1.0, "seed": null}}, "kernel_regularizer": null, "name": "decoder_affine_embedding", "trainable": true, "units": 8, "use_bias": true}}”uŒÔ{"class_name": "Dense", "config": {"activation": "relu", "activity_regularizer": null, "bias_constraint": null, "bias_initializer": {"class_name": "Zeros", "config": {"dtype": "float32"}}, "bias_regularizer": null, "dtype": "float32", "kernel_constraint": null, "kernel_initializer": {"class_name": "VarianceScaling", "config": {"distribution": "uniform", "dtype": "float32", "mode": "fan_avg", "scale": 1.0, "seed": null}}, "kernel_regularizer": null, "name": "decoder_affine_out", "trainable": true, "units": 1, "use_bias": true}}Æ
+à<¦+„¼«&š<9p>vg¼_t’> Iä¾:µª>½ìı>¬Pß½fˆ»¾8”‹¹AÒ»·¿';€7¯~q¼ª9¼ú‰·:jß;¢Ú:)qì:¶‡;~n|5OQ9<)¯â;9:_9×º­9Ît½s|{"class_name": "GRU", "config": {"activation": "tanh", "activity_regularizer": null, "bias_constraint": null, "bias_initializer": {"class_name": "Zeros", "config": {"dtype": "float32"}}, "bias_regularizer": null, "dropout": 0.0, "dtype": "float32", "go_backwards": false, "implementation": 1, "kernel_constraint": null, "kernel_initializer": {"class_name": "VarianceScaling", "config": {"distribution": "uniform", "dtype": "float32", "mode": "fan_avg", "scale": 1.0, "seed": null}}, "kernel_regularizer": null, "name": "decoder_gru", "recurrent_activation": "relu", "recurrent_constraint": null, "recurrent_dropout": 0.0, "recurrent_initializer": {"class_name": "VarianceScaling", "config": {"distribution": "uniform", "dtype": "float32", "mode": "fan_avg", "scale": 1.0, "seed": null}}, "recurrent_regularizer": null, "reset_after": false, "return_sequences": true, "return_state": true, "stateful": false, "trainable": true, "units": 8, "unroll": false, "use_bias": true}}ÄsĞÃm{"class_name": "GRUCell", "config": {"activation": "tanh", "bias_constraint": null, "bias_initializer": {"class_name": "Zeros", "config": {"dtype": "float32"}}, "bias_regularizer": null, "dropout": 0.0, "dtype": null, "implementation": 1, "kernel_constraint": null, "kernel_initializer": {"class_name": "VarianceScaling", "config": {"distribution": "uniform", "dtype": "float32", "mode": "fan_avg", "scale": 1.0, "seed": null}}, "kernel_regularizer": null, "name": "gru_cell_23", "recurrent_activation": "relu", "recurrent_constraint": null, "recurrent_dropout": 0.0, "recurrent_initializer": {"class_name": "VarianceScaling", "config": {"distribution": "uniform", "dtype": "float32", "mode": "fan_avg", "scale": 1.0, "seed": null}}, "recurrent_regularizer": null, "reset_after": false, "trainable": true, "units": 8, "use_bias": true}}    ,Ã<î¯×<#²»<                                                ¥êâ<•Ì¼_à<ÜNÂ¼Ï<}eİ<‹=İ¼¹ìà¼    `¸æZšºıË	¹                                                í”w»3¼89\.»Pù¹è‹gº‡„»¢­ä:ä¼;    }Ú%6võ9ÿ6                                                Ñw‚:JıÚ6»\<:v‚2:ç9½·Ş:zX—9‡D;¥81¼$ƒ¾N#l>;Ÿ¾ŠEœ½ük>$?¾‰m »Ø>ÂD¾´ëv½LÅ>;‡>®»†=‚¹½‡`¾FÅ¾‹ª>“a¾Ií¾ßaÒ½•ë¾3¼¾‰#™=:ä<-o¤>¶E,¾Òˆª=,È8¾ÅÈ¾&™>Ş=ğ·¤½9šq¾;4¾”Ó¼¡@Â¼¸D&¾Ö•ƒ>D>-¦¾NŠŒ¼B<0¾Päº¾ØÔ¾+d+>²oú=ª?¾ür>=­uË¾'¶¾V>1½˜T^;öÙ’>ü%<Iäy¾èÉ;¾ãøê½9x=ôjº=;N¢>Bˆú=xéW>’r/>t>,w¡¾–Ei>¤»â’¾..½[\7¾|yo=)¾yW¾Sã-=¿<>âk>©‡{>ø° ¾V™½Îåµ½o”P>í;
+¾Ä¾ kÙ<ãLg¾kON¾ÊŒ=(w>åA>Ç½oë½¾…<¬>
+h>"ÌX¾´T«¾““>q(h¾ù&€>™åG>EQH¼†¸¸œ>Ü¹y=ï½H>–¾ÂªX¾W•¾Š8+ ¾rÏ:#[<¿&=à¾Œ½œï>Ş ¾çË¾[3E¾|ä´¾<!Œ¾Jİº:1…§>rˆÅ¾¯CO¾œ™‡¼Ì›¾XF‡>‘œ¾­“#½Öë½ÿ >€5>Ì§¾ë6>û—_¾½gE>ı‰…>³ªv>-}Ï¾»¹	>¿Í¾¿œÇ¼_ò€=âçÍ»K¹…¾y…¬¾dÇÄ>çR>¤¾¶—R¾ı•¾\/Ë½fŸR½øí>é;_JD¾T†4»tÏ|>/M¾;6ƒ½)æ‰½³åa>ËWl¾<È[=tX½_Ñi¾m¢,=Ölc>şx¿½6¼}¾ƒJ>ÙE¾±}‰½ïbE>€Ô=”‘¾pš>œ×]=$ı‡¾ïä0>±ä=ÀN“»•»,¾Æy¯½^âÂ=¶«­¾D=Ò¾ZÍN¾’Ë½÷ S¾@…>^c®>„Òº¿á¨>C§>ş®></&¾POÍ=+„<kE¾MAÔ½_Ö½å2ò=¯X½§F>_Hé¼ó r¾÷Œâ<†Ñ¡=ğºŠ>Ø[ä½Qp½¾ã¼Z>wš>©‡b¾Ú˜¾¸ƒò½é“é½ş¦P>AÚ‰>#çœ¾qIx·æ#¼iõN¾Ja‚¾ÚÛb½P?i¾ùëá¹ta¾Âj¾³§¤½	ss¼ãı‚¾Ğ¾Ã£Æ>$o‡>Ó€½İ2>K«½Õ¾5½¯=¦õ >'Ÿ–¾ÆŸ¾À…¼"…½Õƒ2½ÂA–¾.š=b2l¾©#£<*Òƒ=‘Ë„<Œ!0>¢
+¾š¸>KÈ>»=¼½'üs¾‚M¾¬Â>;q>ƒœs¼¤°>âY‰¾˜ô³¼wti>óı´>zW>«œ4=Â½W_S»Cb›½ïàó<·ˆÌ=}™¾R¿+;V€>$”¼"‹‹=µ¤
+¾‹6>HF>k&>A³ù=´p•>¿"Â½v5¸¾¥ì»½×{»¾Ów­¾|…I¾Çö€½ƒh“½SbL=Ul½dz÷=Q1¡¾À¸Ö¼:Ğ×½äÄ«½ë–:<ôI¾å¿‹>‘>îı¾ñıR¾§G«½ÕôÃ>¯>k<He„¾İ×¡>¿¾l=wø>€àŒ>êË>p›>‚³>sÅõ½µ‹=&†2»Ã“‡¾Ò ½3œ)>çâ2¾øb ½úÿÇ=¦°½½Á=¶
+3¾±Œ½{±C>¤>!ä˜¾DX¤=æ›¾ˆ‘î²/Ğ-7êÏÂ9D'8ÚP1´{4 44{Ğ´{§p²­ §4×¸Õ´ñ´oS®4,5S54’P´€¾ó´€Á:
+‡ç·H¬]:¶æ'9`¥‘9™‹¨:Â·ºŠ ÈºŠ3‹3"˜· o ºÄ÷–¸ÍÉ´¤K›´jS%5¡w4ŞZ:´?Úµóª´+5³»rp³=@¶´ñ45À°Õ4ÒW »àÛD8~ã´º Â~¹([ò¹fµ	»´`m:\”#;áß3íĞj7Ú# :ƒ_8òù02CE5A-à2’7µøùÌ´ì—‚´”·4‡Q4î….5•ÙŠ46£ê4šò¿4nxÍ:}¸×½:ŸL9TË¿90ËÛ:ÉÌ=º’ä»òŞŸ´Æv•¶Â¹Ø¼x·İ®ÿ4\5hÓ,µ±Ø-´¤´L´kèâ4A˜˜´Ö¿µr.…3zÚú´Éƒà´Ùú4²¤ü¹;›87¾$±¹Yr—¸Dá¸³ºæg9óî:~5L3Ê7jÈT:’òÁ8bâ³i>°Z£›4ç•4{¤Ú4b˜!µónë´}¢ µdÇµ¯0G,µ(d¿1d3+®*;í‚¸<oğ:½«9û¶:aÚ6;‡ÅºØ}Y»4t°1õ6 m9ıIØ7õ-³ë&µ5d–)µ­¹Á³^ƒ´’%-5óeÆ4½‚¡´õÕÇ4Á»ò´|×4úB:ó‹·Íé:<nÓ8¤¼29%”O:wÈ²¹úMvº*uµ–^Î·ïaNº›»¸à9§´°å´ıŠ µ–dc´Cíô³ˆË4Ôñÿ1sòÕ´²ëÀ5z0´Õk´·²%»+^~8àréºş¦¹;º\¢1»ç™:z+S;­êV´\,7MÃ9ÔÎ)8,´k×4INm4Şµı?&57‰ 4j×µ¹yÁ4İ}4Ñë_²½´¹ÙE´J?Ÿ:åiï·k?_: ƒ.9 -’9ç©:ºÖÊº¤HÁ±èÕó·2	ºöjé¸ˆ)¶´Ÿ§e4šç)3v8×´ym´í¡½³×m†49¶¸³efØ4³—dµÍDŠ3‡O»x8=»cÚÓ¹ãAº¸6^»š£¿:9'„;¼˜†´éÚû·T\ºêƒê¸œ×(µ!ÿ/ÂÙ²Ñ2á´*ğµs?´‘çü´ík±;Şš´©µI:´ìú³ØP»n08ài»	ÆÓ¹ÈŒBºçÆ^»_(À:üz„;º!F4ù·s+‚º’éî¸Ê´¼²×|´œ	Ò³HÚ!µ Ï34z µ\M3—4©¼*3a«À4æ™´Ş¸/ş/Q»?68áP»NjÕ¹‚…Cº¦`»eDÁ:D…;jFµ–]ı·Aû‚º¢™î¸Õ±é4°RÔ3ñ¶Y´}º)²t]0´†ä“3;Ôd4E%µ'2µ±5Æ¡Ç²‘`4åàR»F 8lc»·Ö¹8LEºía»‰¿Â: >†;N"S´ş°¸ÈN„ºÂô¸Œ ´YÑ'´ö)î3#]´â:‰4^Z-µb­ƒ³JÔp´3äA´å¡ù2—Û´…Ì5ÚT»m’ 8²Ò»`RÙ¹Ö(GºĞ1d»òÄ:y‹‡;$–4 	á·ÛˆsºtœÖ¸«é&5–ø–4Sˆ´Ñç4¾²…hµ(›³!È¹48”Ã´„¸5´f `4~óF´pCF»Õ¥‘8­:»¹ó×¹ğ=6ºª¶S»YÃ¶:wÚ{;WLÀ%l¯E3Îú.7û¯3/’'FKC(
+‘š(îÌ.%?ÌQ(ë€¡(MN'¸ûa(‡u)Ü:j'Gü½'Ì(Ë¶é7‡Š4ÀÒ7úPK7 rÖ6­o88iéû6—+„8-k& ‹5}lJ9Æò<5ñ‘(8!9(j1); ü'ÈC'ªéç(H“Y(b8"&–5l&û&t(iÈ)v¡(^„Ğ9–}66÷ã—9	[–9¢Œ9Ï3:Ñ¥ô8Ìİ}:/ƒ'Öhñ4u¦±8_ˆº4ABû$Ë#)âd²%©ö(Œ–(‚ô	(jO'ûn¿'éùC)Šü(¢ª¾(\§…(ñ;9¢™5‚–9º`9­İc8®\ 9HxZ8.Ôâ9˜B(öİn2m¨6›ds2ídŞ(¦æø(d{@)z”'GJ¸'³(f¦3(ÔX)5Ù‡&àæÖ(ÚA°(Ç+x'Ê‰“63ğşY6Èf…6''Ñ5Äv7ù²5òœ37^=%)ÔÖ£5ï‡q9³àw59mÛ%NšW#¤Ô9(L‡Q'ß&¨( %*)£Ò¿(:L()H¼"j\?)[…†$¾šò%àjÿ9óÅW6Š¸9lï¯9¥ 9«,Z:u9">š:€x$iIz2„^a6Ø2Ê&#4)mŠ)×æ9)[cç&ZÅ
+(ğ#A)£(
+F(ir(¶–Ê(b£(ü7–Ô33kË6áß|6½º6ä÷l7Øh"6áª7(®
+)@“ª5Šz9cßy5~HR(µ¶(+()dÛ'/$'ğW"(T¿³$Î¡(“"Ò$x"û(Ö#(Ha'ç#:ü_67í½9ä6·9ò» 9#¢`:Òá9Ä:M‘Ç'N…2©Ñ‘6NË~3 Xq'I[£(Íë'—G)ò<3)¦©0'Ş):†‡(§†(&”!%c-‚(UZ®'LTs7Ñ6S3-æ7è;~6ê‹*6=×³7ûPw6AÚ8¿Ó‡$¤Ö5uŸ9¿©¦5øñs(¾Ş'÷l&µƒ£(ÙŸê'kGà&Ø(-Û×&¥(¡}”&K¤é(Ğ&¿ *:2Š6²ô9SWå9¿K9S:°ûD9üÑÌ:“&(|Ö5jŸ9Àô¦5Bg8)TSô"\§«%†6±(?œ)wf6'Ú(Œ»Ş#ãA8(@&) ,'ñ0&ºú):m{6°©ô9<å9>ˆK9
+ƒ:9òD9€ÉÌ:dÁ®'pÖ5I\Ÿ9
+è¦5nv‘%%f'‹S'T¤*)Üm•'‹èŞ(°<?&ƒÑb'q]&-‰†(~4(ºã¾"ù):0v6«ô9*.å9uK9‚~:’íD9¡ÆÌ:3j)´\Ö5òWŸ9§5M½(o'^ÚË'ótğ$àŞ'ñ'&Lİ'ÇM1)”…É$Ã>)g›%¸²v'ƒü):šy6^´ô9n!å9õqK9E€:ÒíD9@ÈÌ:}×Á''PÖ5AUŸ9à!§5Ë¥['-Ø…'L'rA'–ú(`A)E½…&ãğ'»¨'û2Ë%Ö¬¨(%ô)å*:W{6ìÆô9é!å9ÈuK9‡:şñD9ÏÌ:ÀîA'¨´:4¹ö<8bh5I4)·d0(rO([Œu'ä+Ğ$)k!¨&Iw|(ÈŠ(Åû—'H£Õ'Vî¯'9
+
+915ò0²8`µ.8oÙ7¦V9aA8pù—9'n8HÜ>ñ==’#=úÃ’¾ËN\>·=cd›:îí¡>®ÓZ=l…m»è€m=°3–>Ù‚<? >Ó€=]"0¾•P½ø!è<ûòU7±é;"Pß;u¾—x">§Nš>Xä =³›£¾Ù>Å¤=°ÆG<Ï\Ğ=’Ÿ¾`"a>á-Ã;ãU3>:e>]É…;¸sU>ƒO•¾‡<Õòf=A+N7Š/ï<Ù¿¼£Ù­>š‚'¾ş¥9½pş½ù¾¾Á >¾üƒ=’\¼=‚†î=#?â9?z¬¼7y¾„Á½&:.¾é×y¾K9˜>Ø®¼;ş>±Œu8^FY>…w>|ò×;`½†ç…ºz‰½©2n¾ŞK½p§¾6ï½àQ§½_	C¾åŸ<şó7¾Îã	<G÷»å¢>±>h\7½±/Š>•Z>ZÙR>2ò†>SÄh¾AŞ¦½#•Y>å$«>î›¾Œâø½‹á5>nqç=êpÃ7²Ùµ<}cn¾Ç¶o¾nBƒ>Å„D»ù*j>¨6=™ß.»sJI<4ßÿ½oî<Apˆ½^ŒGºBa¾ÿ:…¾Ã+·@Ø„>Í‡¾
+†t>d->í<‰âç·o‡¡:²Ü³=Z8©¼úÜÜ½²Î½V>¾ÂÑĞ=„ó•¾ge¾É-½Å¯¬¾rÆ3>ïøö¼.—Z>ıûÎ½‘eä=à/¾ZBÓ¼ÙÊP<üG÷½Ğ,¯¾òD¼!aø=Sò0¾®e‰=,˜½û"¾kb•>ƒˆ‚>å¾™¼ğÂu8ĞÈ‚>é²¾@Æ¾®O¼eiq¾ÏD<<j¸Mà;h±H¼!"5¾{"d<š¾…€½$8¢·G¯H>µ&*¾Uù1>ë|ƒ¾{)…½ü¾P>ã9"¾=øe¾‰q>·Ó<+ğ¾¢‘Ÿ=,ç8†ª>•H‚¾‹K:>mŸ>:Ñ¸:–|J¾#ÈÊ¼à4´>ZLT½‚İ„>öİ=M‰ ¾æ¼5CI¾tâT¾ö£»¯Òæ’4 {Ş3MÁ3".µFEï4JéM4ş0™1­ .5WÏı3éõ:²éş4zË!5ş–'3'%,5Ú4>¬À´Ò$´|_3ßŞ°]õ1Q˜Ÿ2ál)µÚ<²4Ñ&5óB64‰ä/µü35ñh:4%‘3Rçh4!>´Y[ô4-2ŸÄ4øù4Œ„N2cè4{Û µpÇ2u4>J@--J‘3.ĞÁ²Ğ¨:5#·´ÏÎÙ³ÂëŒ´µ¦´å,5dA4¤™S4Çz„4È1ùíW³ƒ´—¦X´¤¨¾´1µáë#5«Š2Ÿ¤4³ã»®÷ì4ú5<›2=$´×ôˆ±ÿ¹´Eµ½¹ì³Jë3µvÅ„´ê"=´ĞŸÔ´Ü43—íÈ´p‘¿2çí±«5.5ı>5GQ×³i'5µsí4âLå4{¾5 fü´N§<´üeì4§Ğ75¥ó&µëù‰´ ½Æ47¸€4ÕÊ40b3ü(µªÛµ%İ5gÖ²Îßı4ÚŒÖ3½E²kt3m®´ªß3—
+´FÏ\±£s¥´<ğµèÄ&­Oˆ5f¥µd5/ò½4ñÌÑ2”‹­¢Å1ˆˆJ4?T³¯2v´u»³³{¨´Ãci4ü‡!µø´áÌ³ºo9µx„Ä4r›•³õuí4Úog´4~4ŞôŸ´‰¾³Ø	3% ‰´S<µè³Dµ‰4Ş‡Á´S4%Ô,´ÀÆ²´]ï 5s5!ˆ¬´K–»²åªß®$]5âú?µÁŞ“´zÔ³ˆÀµJBÓ2ò4.ØÍ\2»³óÅ´3WVŸ´›†´–9--š/°•Ú4vZº´•Â4¹µÚ„´Fã4‘ú±´™sù´Š	¯4ëá3µ{Ø44rÆ0F*75)ÖµmfË4Ú+5õ®1{Ü´+z³WA5ô½ö³×5[v4fQ´ûÏ´²1Û´?rç´ºÁ"x[((¼ü'³Uæ&XŸ#)5rÅ(xº'5ÅX$¾(C)H@-'k"%oÔB'»‡*)àÒ&î?)ÕL[';Š†(é«' “&2êø"Á<¬$Â»o%>“9)×İj(Z÷2)Øµ˜'{ÑF)\W)
+W'íÇÚ%eÜã';!=( Í(äXR%qµŠ(ğÔ(%%6ìº(™¹()Ïàš%€";',İK™&–%iİ])Û9w(¸	'nß(EÍO(ŒŸ@))=c'‹Â'äR(€ëŞ#íhL&lÍ<(ë7Ê'æ„(Dùõ(ü¨.)"¤K%8mK(;ı"šÁÀ(Åù)üg%X'ÔËB$ƒDp'®8â(]İ'jJO)$Ù(W¢'Ê	 (Çó!&VÔ(”%Şc¦$TC)Tcf)½8'Öü)fÅÂ( ·(¡î)÷HÙ(l¡'¾:Á(¯§W)¡4)b\(7(’¥(Í #~éY&×‰â(L¿ä(1)ä×á$Í’Û(e'Í–Ì$¼–Ü%¾O(Ü®˜&3n'N$ØqN(»Æ	)Õ0ìS	)’…)ÄÙì(â8ƒ()Ñ¤%X9r  ş^$µ'zÈG&çù'xÏ&´U(d¦ä'†*)jaÓ(Ú<û&#/[)AI‹(/¸Ÿ&¯ÈÂ(å|á',Ò(óÅB(Eƒ&y˜å%7É(çï`)ºi×%	İ(•—‡(°q'—BŒ'Rl(Èß()´â)Ôö](jt%)"\V)·i)î@*(ã%•—ç(.¦%’¾Ñ!³#%ñßÛ%¦(š<ı%zzA(Ã‹Z'!	!÷#Ç¨(Ó}(¤íˆ(\›)ô7f'[Ü³(Fj(/ÀÔ(–c(\=ƒ&ª')}Ï–'6ûh#‹?V)èo)oû“(Ræ<)sv$õ«ª(¼y& Ël)Îõ%'ì	)û+ú'U…(àdŠ%àæ¨(lº(Ît½s|{"class_name": "GRU", "config": {"activation": "tanh", "activity_regularizer": null, "bias_constraint": null, "bias_initializer": {"class_name": "Zeros", "config": {"dtype": "float32"}}, "bias_regularizer": null, "dropout": 0.0, "dtype": "float32", "go_backwards": false, "implementation": 1, "kernel_constraint": null, "kernel_initializer": {"class_name": "VarianceScaling", "config": {"distribution": "uniform", "dtype": "float32", "mode": "fan_avg", "scale": 1.0, "seed": null}}, "kernel_regularizer": null, "name": "encoder_gru", "recurrent_activation": "relu", "recurrent_constraint": null, "recurrent_dropout": 0.0, "recurrent_initializer": {"class_name": "VarianceScaling", "config": {"distribution": "uniform", "dtype": "float32", "mode": "fan_avg", "scale": 1.0, "seed": null}}, "recurrent_regularizer": null, "reset_after": false, "return_sequences": true, "return_state": true, "stateful": false, "trainable": true, "units": 8, "unroll": false, "use_bias": true}}ÄsĞÃm{"class_name": "GRUCell", "config": {"activation": "tanh", "bias_constraint": null, "bias_initializer": {"class_name": "Zeros", "config": {"dtype": "float32"}}, "bias_regularizer": null, "dropout": 0.0, "dtype": null, "implementation": 1, "kernel_constraint": null, "kernel_initializer": {"class_name": "VarianceScaling", "config": {"distribution": "uniform", "dtype": "float32", "mode": "fan_avg", "scale": 1.0, "seed": null}}, "kernel_regularizer": null, "name": "gru_cell_22", "recurrent_activation": "relu", "recurrent_constraint": null, "recurrent_dropout": 0.0, "recurrent_initializer": {"class_name": "VarianceScaling", "config": {"distribution": "uniform", "dtype": "float32", "mode": "fan_avg", "scale": 1.0, "seed": null}}, "recurrent_regularizer": null, "reset_after": false, "trainable": true, "units": 8, "use_bias": true}}"ğ¼"Óó<şY¡<>¥<    x¤Ğ¼*¸İ<^ÿ¼²½W<    î¨Û<    	@İ<ˆı÷<ãQø¼    Ù*ğ¼)–ì¼ú¬ì<¨#Ù<ŸÙ<û#Ù¼uôß¼j”í¼Zn¦9cå¸·7ùG8    &j8+2¹¤†^9¹º    ÿh—º    {|1ºpŒˆ¸Û¾n:    FOZ;¢XŠ:S˜¿¸æhj»³Gºä‹³:JdÙ:Ä%^;”15z¡4Y51/²3    ¯©¹4t‚5L~O5FÙ66    {x8    ê¶Œ8%ÎO3øë–7    @Ú—9~Éñ7luJ7ƒè";(Â9ò9ï>„9±*:şÙ–>‰Óş=´vİ=5=î©¾Ù3¼…áb=YEÃ>Tü¾óß­¾õ`œ>àË\<¤w¾'ñ>Ğİğ¼
+	¾<LÙi<^œ<A¾@÷»·´X¾jØ<Á‹D>õi+=$>XÏ>Ã®'ºÆ5=Ks>çµy>)Œ>+Q+>Ò×¸>íM0¾Yn/¾¯$ºàZ>]zÊ¾ÒM>®ñ=>¯ÃM¾Ÿuë=›)»¾JÊÑ½0à½uU?> U>É«€¾ô‘>¢SW½HÅÕ>®k®>eâ<îÙ>ßA?>qx¯<aD¼±Ë5>´Ëß>™u¾š–å>š¡>ûâ¾³¨	¾Jq'>¢X>0Â£¾9œ>ò^¾²¿=ùĞE¾sVô=^Jñ»zÂš<Ğ…·<“—½(4)<šû½á²U=¤/Î½J¤*½l9s=zO¦>®¼­¾+æİ>Û>
+«>{3Œ¼Š~¾¼a“>º¾?¦9>FÏÔ¾ç/>P…É>Á¤D>kk¾‘$¾3Ø¾ò0š>§÷ ¾wp±=/÷£¾~Å]> p>©u½É˜¾îÊ½át5¾‚§¾¿Ò>wÏÃ¼²Ë¾Å¡>x‰ğ>Çô×¾é³¾~ƒí¾qS>ƒNœ¾¢ê‹9îç¿¸¾Åş6˜:(8kŠ6µøú7Q¹PQ;9¸ î¹t¯:µH~ºØ3ïßº\­a¸ïqH:o¶k3Z]7;h|h:„)¸ûD»¿Q'º­¦–:Xj¶:în:;fı‹9j‚¿¸ıï÷6è…(80¾5Ä´ş7»¹2$;9ìÊî¹@ÚÀ´àCº.¾9±º i¸¿I:E@Ï4Ò7;i,i:…UŸ¸¤E»Š¨'ºl—:ìì¶:`ç:;‚®Œ9¤Á¸î¥
+7ù½+8”.Š3#V8pã¹f;9x¢ğ¹¦Æ4³<€ºÒôµşÁºõd¸ºæI:Qü—´àé8;²„j:FrŸ¸ F»÷§(º1ı—:Æå·:<; H9…Â¸Zóü6ï…)80å2
+xü7£.¹ì{<9¿ò¹×4ø_ºaŠ:µFôº'&h¸.òK:;3³€e:;w‰l:˜ê¸_ÃG»O*ºæG™:õš¹:±“=; 69È¾Ä¸Ø9â6ªt.8º-µî. 8,Q¹s¨>9CÑô¹e´¶Î‚º*b´Âšºn¸RâM:62r³Ò <;ëÏn:ÓDœ¸§©I» ~+ºˆš:ºL»:gE?;¦¶Ë4Õ`Q4Ó)í0y2f3®æT)°s4Ob*5Èe
+5•íğ5
+ì])j®P8Y2ô%¥+78Pû3“·F7»îe&'*G9!PŸ7ñW7®jÓ:÷øÅ8‹+:9+9h»9p¼Ë4ufQ4"jí0õf3ÍÃê(±s4óS*5@t
+5°ñ5Â†(¼»P8ú¤$,!78‘Q	3@¿F7¨õ˜(e.G9_QŸ7i^7\Ó:yêÅ8l:9/ş*9O»9–³Ë4õ‚Q4çÄì0Qµe3ïó&+¶s4U*5§v
+5ıñ58ô(¿P8æ­î(i78Â%	3YÃF7Âl2(@7G9OŸ7.o7–SÓ:ĞßÅ8:9uú*9Õ»9¤›Ë4œ}Q4Âaí0ğÔe3y·%>¸s4Ia*5¶w
+5Û?ñ5 §I'ô¹P8„š])Ó78#P	3*ÕF7; &}CG9ÇMŸ7ò7ìSÓ:æáÅ8² :9k+9s"»9¨•Ë4}Q4z î0‡æe3ÏA)Yt4n*5°“
+5ËUñ5¾–L'µP8ÁÙ'é"78‘	3gßF7ÙŠn&áPG9,LŸ7³‘7aXÓ:ôéÅ8ä,:9+90»9=(¾Æ²Â>œ™>Wš¾‚ä¾÷›>ü˜¾AÍ=1•v¾JØ»¶£¾f‡¾e¬¾]&ã¾*ı½7u=¢ó=˜¯Î>­â«>@»¾SÕw¾Ò¾Ë{%>X°J>ÜÄõ¼q0Ç>G¾c¢Ô=„&h¾¸¦¾S
+6½?Qİ=íê÷½Öü‚½„s¾¾ö•¾‚¦=ëOú½øƒÎ½FÍÆ<²ÿp>“½¡=¾ÜI¾NŸz>XÊºq`¾èˆ§¾Rø½•n>‘µË=³‡½Şğ<ùT>‡%‘>™Û–>h{“>v=í}>“ >‚ÙÀ¾O•>ùh¾„>ïy>Œ¯>¾¦>ó|ç¾C^‚=xõ=´4,¾aóá=ì¬¥=ƒ[½>ó»K¾à •>z¾á½Ú(¾³Ø>µµ>z|>u@—¼„8«>…[>OŒß¾y$ª¾A©=Jò´½„cA½gµ¾‚»È;™–¾.º²8ş6İ¼V|°¾… À=Ë‘<|o¯¾­ËÜ¾Â…±>—˜ƒ¾Í%*¾Èî5½lÇ=U® ¾[y!¼·s=ÆºB¾‡&L>0$5=eÙ¼şû:›¾è—=¶Û*>0©'¾†Ù¦¾ú©U>\œ‡¾µğ¿>©Ùx¾f¸>l01¾£ ¾`Ä—>;h‹>ÉÙ”>Y’½XûÕ¾s w=E÷>c=¾à‰=FG=«WÒ>Ç><ó/¾Bv‘>íêL¾'8­¼ˆHK>»È‰>Åk	½yºS>.£>•›c>Á÷’>ÃqÀ¾¡†6¾\¥>—jÉ¾>ÒfÄ¾ïHS>Ì¯¯=mC¡>Q2¾òÖ>¦l½ú9¾•ß–>—1¼`Í>Y¬ö<ÌÓª>ƒ³Š¾â¦N>ŞY‹>y=»¾Z3¾>KHì=ño£=£V½À°>4Ü¢¾W)³>6ş‰¾VWm=>›ë½K>ycß=É‘Õ¾Õ§«>)ˆu>°­¡¾0ä\>De¯¼ë¾É =ü£½Xu>< m¼Eg¸ÄÏ6$*ğ44Sƒ·â)µ	\·_Ä37ÓÚ+¸Üw49™D›²œï¿9Ì
+µøFa9Ö[ª7 Ô—¹©^4jœ‚¹v¦¥¸ò*7Ó¾’9V¢r8­·ä¸²÷¹TŠ¹0Ño8Ë±®¶àÃÕ±EÙ7Â¿û´ÚG„7º¡·@Ñ“8Å­“¹.´¼'º‹!µQs¸¹Ş¸ª¯÷9áŒu3ßˆ5Ê³q
+µ7ÒÛ´š5ö´»±¡ó´T4µq*:¸‹#š6Dn:3;×˜·9’3"#;·ºz_7b÷N¸ j9l24l_ú9š;°4V›“9°ë7TåÄ¹€¨5,Vºg•%¹ruœ7w:ÿ‚ò8]Ša¹tÛ¹ÖÀº˜ C7ÍÓ65ª]ì´&6–b{´Åi‚5şÿ4yÖ6S¸•Ù?³Ğƒ¹2¡4Ì‡¸¸¬x$·¶[ğ8É°K´ô9â³Ü˜Bµ¢‘26"µ5˜0<L‡³ùm=µ¤%X4T@£¸¢7¤”³µ“¸Ù7µ@Ê·ô	8lİÙ¸)×Ã9|İÛ²–7Q:åLÔ´X ô9	E<8L¸$º÷ß1¶Ï©º§¸Ó¹¬28a
+»:…œ9ÕÛºÄ­&º'„®ºæ‹•·/í‡5ª³´Ğ’¶ìp#5%5¶"•Ñ5†7·¼¾Ü8]/44Wm9¯UÎ´èí9=Xh7‹7¹PiÂ2¼Ô–¹TÄ¸r-7H&«9v8‡‹¹÷U¹Çâ ¹ÆÜ–8;-½¶ˆºX5®«ã7çkÇ´ï;Ÿ7˜P ·4¢8T¾¹…Âå4
+Kºem-5(	ï¹}b6¸ÚZ:¿¢«´Å¼:hv;9€ì·r²(ºÿ¹ŞW9Æ”9·Ú:<¸£°6v4õí·Ò`"´º˜¶˜cS6$ì¾·Ö‚59{è4ØcÁ9¬v¢4´Xf9€´7IP—¹ğë5 İ-µºâï4±9[³Š¯´8&64ó‘9´¡Ò5†R³½1½Íz/?Oì+zå^0^:)í×^2şÕÌ/Û®Œ2+}X4‰Xh%âÿ46 )àRá5HãD1páW5]ˆL'ûe’4"ø2x~00j£4e?T2H©c30(p3'4–U2@ó1š¼8-qu1HØ(µc4I0³yÿ3È-X5z·`'£hñ7*)}_ä7¾&‹2‹ñÙ6Ds&ææ(7_­&¬fÿ(†Ã©(ÅR÷(/ûƒ$ıíË(ÇO)î1¶§‘0İ¶,ÆÖ1ö¬š&yÚ3z$0û33 ş50“'Âb7÷Jf(ŒuK7Á2~¿W6b)ô%È5\¸ 4èÀ}2=¾m6ArC4\×ş4CJ5}ø5~™‡/ß»U-–¤*×F™-b(´Ò.1U~¬+ 0â´2cß.&÷cu47`E(²I¦4³µª/©Ñ˜3qÍ¶'Ş”'ä§o)`X%ÑU+)Ô–U#{ÖŠ&ÿc)`rÉ'ı†¦2²f1¼	-óş1bÍ)r›4ÃwF1˜TX4šÔª5J®%	ë8j›Ÿ(W«
+8 ¤Ã2Ç‰7]’œ$~<8ĞJ6jç©5r„9
+ğs7Bîß7:-Í78ho8Ÿã™/2Ó€,dÊ)ÇÁ-¹-)¤–“/¶çÅ+kH0"o†3R]N'÷f5‘Ä—(æ
+5ìª0#…4g¡–%oá4K¥<3n&×1\Ş©5²*3j_+4o,4Ğ-5Šó†2bÄ1µWf-ƒî|1•ì(*ª‚4¤D0_4tö¢5~§·(á¡8|·A)oÂ8]ÛÆ2ŞB7[ø[(|PÖ7ÿ'6QÄ5Ñ$ 9íœ•7Ãç8Ùæè7ph8HK0§	.rŞµ*÷L$/c~'øÔÔ0lº&.ÇzV1Û44>£B'¸Ô5·H(úN5Á˜&1´¾5*‘î(xB)ÏZÆ(a•P&w¸d(4˜'T1'3?î(97&“Ç8ß¸i?       

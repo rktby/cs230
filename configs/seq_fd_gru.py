@@ -3,12 +3,12 @@ import tensorflow as tf
 def hparams():
     return tf.contrib.training.HParams(
         batch_size=800,
-        in_seq_len=120,
-        input_dim=1,
-        input_channels=2,
+        in_seq_len=168,
+        input_dim=5,
+        input_channels=1,
         out_seq_len=24,
         output_dim=1,
-        output_channels=2,
+        output_channels=1,
         num_layers=1,
         neurons_unit=32,
         learning_rate = 10 ** -3,
