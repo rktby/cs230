@@ -11,7 +11,7 @@ def hparams():
         output_channels=1,
         num_layers=1,
         neurons_unit=32,
-        learning_rate = 10 ** -2.5,
+        learning_rate = 10 ** -2,
         lr_decay = 0.99,
         lambd = 1e-6,
         train_split = 0.8,

@@ -104,3 +104,48 @@ def save_model(model, optimizer, dataset, hparams, name, stats=None, path='../ou
         if stats != None:
             for stat_name, stat in stats.items():
                 file.create_dataset('stat_' + stat_name, data=np.array(stat))
+                
+def validate_model(model, optimizer, get_fields, dataset, hparams, search_params, output_csv = False, out_dir = None, dsn_suffix = ''):
+    """
+    Method for saving model outputs
+    """
+
+    hparams = hparams.values()
+    sensors = get_fields.split()
+
+    # Save predictions and actual data
+    preds, acts, maxs = [], [], []
+    for inp, target, mask, x_max in dataset:
+        pred = model(inp, mask)
+        preds.extend(np.array(pred))
+        acts.extend(np.array(target))
+        maxs.extend(np.array(x_max))
+    
+    preds = np.array(preds)*np.array(maxs)
+    acts  = np.array(acts)*np.array(maxs)
+    errors = np.abs(preds - acts)
+    
+    mses = np.mean(errors**2, axis = 0)
+    maes = np.mean(errors, axis = 0)
+    mapes = np.mean(errors/acts, axis = 0)
+    rses = np.mean(errors**2, axis = 0)/np.var(acts, axis = 0)
+    
+    dfs = [pd.DataFrame(array, columns = sensors) for array in [mses, maes, mapes, rses]]
+    output_df = pd.concat(dfs, axis = 0)
+    output_df['h_ahead'] = output_df.index.values + 1
+    output_df['metric'] = np.array(['mse']*24 + ['mae']*24 + ['mape']*24 + ['rse']*24)
+    output_df = output_df.melt(id_vars = ['h_ahead','metric'])
+    output_df.columns = ['h_ahead','metric','sensor','value']
+    
+    for search_param in search_params:
+        output_df[search_param] = hparams[search_param]
+    
+    if output_csv:
+        search_params_values = sensors + [str(hparams[search_param]) for search_param in search_params]
+        op_fname = '_'.join(search_params_values) + dsn_suffix + '.csv'
+        op_path = os.path.join(out_dir, op_fname)
+        output_df.to_csv(op_path, index = False, encoding = 'utf-8')
+
+    return output_df
+    
+
