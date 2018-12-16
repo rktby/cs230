@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 import tensorflow as tf
 
-from train_val_test_split import split
+from .train_val_test_split import split
 
 def load_data(hparams, mode='mini', normalise='global_max'):
     """

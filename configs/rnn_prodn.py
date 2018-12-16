@@ -3,10 +3,10 @@ import tensorflow as tf
 def hparams():
     return tf.contrib.training.HParams(
         batch_size=800,
-        in_seq_len=24,
+        in_seq_len=61,
         input_dim=5,
         input_channels=1,
-        out_seq_len=24,
+        out_seq_len=61,
         output_dim=1,
         output_channels=1,
         num_layers=1,
@@ -18,5 +18,5 @@ def hparams():
         val_split = 0.1,
         test_split = 0.1,
         norm_epsilon = 1e-12,
-        datagen = 'biogas',
+        datagen = 'prodn',
         logs_path = '/tmp/tensorflow_logs')
