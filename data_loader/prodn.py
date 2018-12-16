@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 import tensorflow as tf
 
-from train_val_test_split import split
+from .train_val_test_split import split
 
 def load_data(hparams, mode='mini', normalise='global_max'):
     """
@@ -60,3 +60,11 @@ def load_data(hparams, mode='mini', normalise='global_max'):
     train, val, test = split(hparams, dataset, mask)
     
     return train, val, test
+
+def x_var(hparams, mode='maxi', normalise='global_max'):
+    prodn = pd.read_pickle('../../full_6d.pkl').values
+    prodn = np.reshape(prodn, -1)
+    prodn = prodn[~np.isnan(prodn)]
+    x_var = np.cov(prodn)
+
+    return x_var
