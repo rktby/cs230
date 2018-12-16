@@ -69,6 +69,6 @@ def split(hparams, dataset, mask, normalise='global_max'):
                      y[val_pos:].astype(np.float32),
                      y_mask[val_pos:].astype(np.float32),
                      x_max[val_pos:].astype(np.float32)))
-    dataset_test = dataset_val.batch(hparams.batch_size, drop_remainder=True)
+    dataset_test = dataset_test.batch(hparams.batch_size, drop_remainder=True)
 
     return dataset, dataset_val, dataset_test

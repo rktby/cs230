@@ -41,6 +41,7 @@ def load_data(hparams, mode='AT305', normalise='global_max', shuffle=False):
     return train, dev, test
 
 def x_var(hparams, mode='AT305', normalise='global_max'):
+    """TODO: Write 'local_max' option for line level variance calcs"""
     prodn = pd.read_csv('../../Data/cr2c_opdata_TMP_PRESSURE_TEMP_WATER_COND_GAS_PH_DPI_LEVEL.csv')
 
     if mode == 'AT305':
