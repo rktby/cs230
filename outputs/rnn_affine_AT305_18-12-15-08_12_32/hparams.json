@@ -1,1 +1,0 @@
-{"input_dim": 5, "logs_path": "/tmp/tensorflow_logs", "output_dim": 1, "output_channels": 1, "in_seq_len": 24, "lambd": 1e-06, "val_split": 0.1, "lr_decay": 0.99, "train_split": 0.8, "neurons_unit": 32, "learning_rate": 0.0031622776601683794, "out_seq_len": 24, "norm_epsilon": 1e-12, "batch_size": 800, "test_split": 0.1, "input_channels": 1, "datagen": "biogas", "num_layers": 1}
