@@ -1,1 +1,7 @@
 test_notebooks/
+.ipynb_checkpoints/
+.DS_Store
+*/.DS_Store
+*/.ipynb_checkpoints
+*/__pycache__
+*/*.pyc
