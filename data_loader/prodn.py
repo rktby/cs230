@@ -9,12 +9,13 @@ def load_data(hparams, mode='mini', normalise='global_max'):
     Arguments:
         hparams: tf hyperparameters
         mode:
-            -'mini': Get dataset with only one batch
-            -'midi': Get dataset with one year of data
-            -'maxi': Get dataset with each year's data
+            -'mini':   Get dataset with only one batch
+            -'midi':   Get dataset with one year of data
+            -'midi_w': Get dataset with one year of data on a weekly cycle
+            -'maxi':   Get dataset with each year's data
         normalise:
             -'global_max': Scale all observations down according to the largest value in the dataset
-            -'local_max': Scale each observation down according to the largest value in the row
+            -'local_max':  Scale each observation down according to the largest value in the row
     """ 
     # Calculate train, validate and test set sizes
     p_val, p_test = hparams.val_split, hparams.test_split
@@ -36,6 +37,15 @@ def load_data(hparams, mode='mini', normalise='global_max'):
         print('Loading Data - Mode: midi')
         dataset = np.nan_to_num(prodn)
         mask = np.isfinite(prodn)
+    
+    # Load one year's data on a weekly cycle
+    if mode == 'midi_w':
+        print('Loading Data - Mode: midi_w')
+        dataset = [prodn[:, i : i + hparams.in_seq_len * hparams.input_dim + hparams.out_seq_len + 1] \
+                    for i in range(0, hparams.in_seq_len, 4)]
+        dataset = np.vstack(dataset)
+        mask = np.isfinite(dataset)
+        dataset = np.nan_to_num(dataset)
     
     # Load all years of data on an annual cycle
     if mode == 'maxi':
