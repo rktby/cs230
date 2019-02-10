@@ -28,7 +28,7 @@ def split(hparams, dataset, mask, normalise='global_max'):
 
     if normalise in('local_max_min', 'global_max_min'):
         datanorm = dataset - x_min
-        datanorm = datanorm / x_max
+        datanorm = datanorm / (x_max - x_min)
     else:
         datanorm = dataset / x_max
 
@@ -50,25 +50,51 @@ def split(hparams, dataset, mask, normalise='global_max'):
     train_pos = int(x.shape[0] * p_train)
     val_pos   = int(x.shape[0] * (p_train + p_val))
 
-    dataset = tf.data.Dataset.from_tensor_slices(\
-                (x[:train_pos].astype(np.float32),
-                 y[:train_pos].astype(np.float32),
-                 y_mask[:train_pos].astype(np.float32),
-                 x_max[:train_pos].astype(np.float32)))
-    dataset = dataset.batch(hparams.batch_size, drop_remainder=True)
+    if normalise in('local_max_min', 'global_max_min'):
+        dataset = tf.data.Dataset.from_tensor_slices(\
+                    (x[:train_pos].astype(np.float32),
+                     y[:train_pos].astype(np.float32),
+                     y_mask[:train_pos].astype(np.float32),
+                     x_max[:train_pos].astype(np.float32),
+                     x_min[:train_pos].astype(np.float32)))
+        dataset = dataset.batch(hparams.batch_size, drop_remainder=True)
 
-    dataset_val = tf.data.Dataset.from_tensor_slices(\
-                (x[train_pos:val_pos].astype(np.float32),
-                 y[train_pos:val_pos].astype(np.float32),
-                 y_mask[train_pos:val_pos].astype(np.float32),
-                 x_max[train_pos:val_pos].astype(np.float32)))
-    dataset_val = dataset_val.batch(hparams.batch_size, drop_remainder=True)
+        dataset_val = tf.data.Dataset.from_tensor_slices(\
+                    (x[train_pos:val_pos].astype(np.float32),
+                     y[train_pos:val_pos].astype(np.float32),
+                     y_mask[train_pos:val_pos].astype(np.float32),
+                     x_max[train_pos:val_pos].astype(np.float32),
+                     x_min[train_pos:val_pos].astype(np.float32)))
+        dataset_val = dataset_val.batch(hparams.batch_size, drop_remainder=True)
 
-    dataset_test = tf.data.Dataset.from_tensor_slices(\
+        dataset_test = tf.data.Dataset.from_tensor_slices(\
+                    (x[val_pos:].astype(np.float32),
+                     y[val_pos:].astype(np.float32),
+                     y_mask[val_pos:].astype(np.float32),
+                     x_max[val_pos:].astype(np.float32),
+                     x_min[val_pos:].astype(np.float32)))
+        dataset_test = dataset_test.batch(hparams.batch_size, drop_remainder=True)
+    
+    else:
+        dataset = tf.data.Dataset.from_tensor_slices(\
+                    (x[:train_pos].astype(np.float32),
+                     y[:train_pos].astype(np.float32),
+                     y_mask[:train_pos].astype(np.float32),
+                     x_max[:train_pos].astype(np.float32)))
+        dataset = dataset.batch(hparams.batch_size, drop_remainder=True)
+
+        dataset_val = tf.data.Dataset.from_tensor_slices(\
+                    (x[train_pos:val_pos].astype(np.float32),
+                     y[train_pos:val_pos].astype(np.float32),
+                     y_mask[train_pos:val_pos].astype(np.float32),
+                     x_max[train_pos:val_pos].astype(np.float32)))
+        dataset_val = dataset_val.batch(hparams.batch_size, drop_remainder=True)
+
+        dataset_test = tf.data.Dataset.from_tensor_slices(\
                     (x[val_pos:].astype(np.float32),
                      y[val_pos:].astype(np.float32),
                      y_mask[val_pos:].astype(np.float32),
                      x_max[val_pos:].astype(np.float32)))
-    dataset_test = dataset_test.batch(hparams.batch_size, drop_remainder=True)
+        dataset_test = dataset_test.batch(hparams.batch_size, drop_remainder=True)
 
     return dataset, dataset_val, dataset_test

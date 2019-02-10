@@ -67,7 +67,7 @@ def load_data(hparams, mode='mini', normalise='global_max'):
         dataset = np.nan_to_num(dataset)
 
     # Split into training, validation and test datasets
-    train, val, test = split(hparams, dataset, mask)
+    train, val, test = split(hparams, dataset, mask, normalise=normalise)
     
     return train, val, test
 
