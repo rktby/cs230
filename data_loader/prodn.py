@@ -4,7 +4,7 @@ import tensorflow as tf
 
 from .train_val_test_split import split
 
-def load_data(hparams, mode='mini', normalise='global_max'):
+def load_data(hparams, mode='mini', normalise='global_max', is_autoregressive=False, time_encoding=None):
     """
     Arguments:
         hparams: tf hyperparameters
@@ -65,9 +65,18 @@ def load_data(hparams, mode='mini', normalise='global_max'):
         dataset = np.vstack(dataset)
         mask = np.isfinite(dataset)
         dataset = np.nan_to_num(dataset)
+        
+    # Add time encoding
+    if time_encoding != None:
+        time_enc = np.ones((mask.shape[0], mask.shape[1], len(time_encoding)))
+        time_enc[:,0] = 0
+        time_enc /= np.reshape(time_encoding, (1,1,-1))
+        time_enc = time_enc.cumsum(axis=1)
+        mask = np.dstack([mask, np.sin(time_enc), np.cos(time_enc)])
+        del(time_enc)
 
     # Split into training, validation and test datasets
-    train, val, test = split(hparams, dataset, mask, normalise=normalise)
+    train, val, test = split(hparams, dataset, mask, normalise=normalise, is_autoregressive=is_autoregressive)
     
     return train, val, test
 
