@@ -4,7 +4,8 @@ import tensorflow as tf
 
 from .train_val_test_split import split
 
-def load_data(hparams, mode='mini', normalise='global_max', is_autoregressive=False, time_encoding=None):
+def load_data(hparams, mode='mini', normalise='global_max', is_autoregressive=False, time_encoding=None,
+              winter_mask=False, prodn_bins=False):
     """
     Arguments:
         hparams: tf hyperparameters
@@ -23,6 +24,7 @@ def load_data(hparams, mode='mini', normalise='global_max', is_autoregressive=Fa
     
     # Load dataset
     prodn = pd.read_pickle('../../full_6d.pkl').values
+    h, w = prodn.shape
     print(prodn.shape)
     
     # Load one batch of data only
@@ -65,13 +67,44 @@ def load_data(hparams, mode='mini', normalise='global_max', is_autoregressive=Fa
         dataset = np.vstack(dataset)
         mask = np.isfinite(dataset)
         dataset = np.nan_to_num(dataset)
+
+    # Add masking for winter stopping
+    if winter_mask:
+        winter_mask = np.dstack([prodn_[:,0:-2], prodn_[:,1:-1], prodn_[:,2:]])
+        winter_mask = winter_mask.sum(axis=2)
+        winter_mask[winter_mask > 0] = 1
+        for i in range(int(np.floor(winter_mask.shape[1] / 61))):
+            i = 61 * i
+            winter_mask[:,i:i+61] = winter_mask[:,i:i+61].min(axis=1, keepdims=True)
+        mask = np.dstack([mask, winter_mask])
+        del(winter_mask)
+        
+    # Add one-hot production bins
+    if prodn_bins:
+        # Calculate annual production volumes
+        a = np.nan_to_num(prodn)
+        a = np.cumsum(a, axis=1)[:,::61]
+        a = a[:,1:] - a[:,:-1]
+        h_a, w_a = a.shape
+
+        # Create bins
+        # TODO: Allow bins to be passed as an argument
+        from scipy import stats
+        bins = stats.mstats.mquantiles(a[a>0], [i/15 for i in range(15)])
+        bins = np.hstack([[0], bins, [10000000]])        
+        a = np.digitize(a, bins) - 1
+
+        bins = np.zeros((h_a, w_a, len(bins)-1))
+        bins[np.repeat(np.arange(h_a), w_a), np.arange(h_a*w_a) % w_a, np.reshape(a, -1)] = 1
+
         
     # Add time encoding
     if time_encoding != None:
         time_enc = np.ones((mask.shape[0], mask.shape[1], len(time_encoding)))
         time_enc[:,0] = 0
         time_enc /= np.reshape(time_encoding, (1,1,-1))
-        time_enc = time_enc.cumsum(axis=1)
+        time_enc  = time_enc.cumsum(axis=1)
+        time_enc *= 2 * np.pi
         mask = np.dstack([mask, np.sin(time_enc), np.cos(time_enc)])
         del(time_enc)
 
