@@ -30,19 +30,19 @@ def load_data(hparams, mode='fixed_frequency', normalise='fixed_scale', shuffle=
     if mode == 'random_frequency':
         dataset *= np.random.uniform(0.3, 3, (n_obs, 1))
 
-    dataset = (np.sin(dataset) + 1) / 2
+    dataset = np.sin(dataset) + 1
     
     if normalise.find('random_scale') >= 0:
         divisor = np.random.uniform(1, 10, (n_obs, 1))
         dataset /= divisor
         
     if normalise == 'random_scale_and_offset':
-        offset = np.random.uniform(0, 1 - 1 / divisor, (n_obs, 1))
+        offset = np.random.uniform(0, 2 - 2 / divisor, (n_obs, 1))
         dataset += offset
     
     mask = np.ones_like(dataset)
     
     # Split into training, validation and test datasets
-    train, val, test = split(hparams, dataset, mask, normalise=None)
+    train, val, test = split(hparams, dataset, mask, normalise='global_max')
     
     return train, val, test
