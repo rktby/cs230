@@ -4,7 +4,7 @@ import tensorflow as tf
 
 from .train_val_test_split import split
 
-def load_data(hparams, mode='fixed_frequency', normalise='fixed_scale', shuffle=False):
+def load_data(hparams, mode='fixed_frequency', normalise='fixed_scale', shuffle=False, isVerbose=True):
     """
     Arguments:
         hparams: tf hyperparameters
@@ -43,6 +43,6 @@ def load_data(hparams, mode='fixed_frequency', normalise='fixed_scale', shuffle=
     mask = np.ones_like(dataset)
     
     # Split into training, validation and test datasets
-    train, val, test = split(hparams, dataset, mask, normalise='global_max')
+    train, val, test = split(hparams, dataset, mask, normalise='global_max', isVerbose=isVerbose)
     
     return train, val, test

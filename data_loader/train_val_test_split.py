@@ -2,7 +2,7 @@ import numpy as np
 import tensorflow as tf
 
 
-def split(hparams, dataset, mask, normalise='global_max', is_autoregressive=False):
+def split(hparams, dataset, mask, normalise='global_max', is_autoregressive=False, isVerbose=True):
     # Extract parameters defining dataset shape
     in_len, out_len, in_dim = hparams.in_seq_len, hparams.out_seq_len, hparams.input_dim
     end_pos = in_len * (in_dim - 1) + 1
@@ -55,21 +55,21 @@ def split(hparams, dataset, mask, normalise='global_max', is_autoregressive=Fals
     
     # Determine data to add to dataset
     dataset = [x,y]
-    print('Added x, y data')
+    if isVerbose: print('Added x, y data')
 
     if is_autoregressive:
         dataset.append(x_mask)
-        print('Added x_mask data')
+        if isVerbose: print('Added x_mask data')
 
     dataset.append(y_mask)
-    print('Added y_mask data')
+    if isVerbose: print('Added y_mask data')
 
     dataset.append(x_max)
-    print('Added x_max data')
+    if isVerbose: print('Added x_max data')
     
     if normalise in('local_max_min', 'global_max_min'):
         dataset.append(x_min)
-        print('Added x_min data')
+        if isVerbose: print('Added x_min data')
     
     # Calculate split positions
     train_pos = int(x.shape[0] * p_train)
