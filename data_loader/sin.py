@@ -4,7 +4,8 @@ import tensorflow as tf
 
 from .train_val_test_split import split
 
-def load_data(hparams, mode='fixed_frequency', normalise='fixed_scale', shuffle=False, isVerbose=True):
+def load_data(hparams, mode='fixed_frequency', normalise='fixed_scale',
+              add_time_embedding=False, offset_time_embedding = 0, shuffle=False, isVerbose=True):
     """
     Arguments:
         hparams: tf hyperparameters
@@ -22,14 +23,15 @@ def load_data(hparams, mode='fixed_frequency', normalise='fixed_scale', shuffle=
     p_train = 1 - p_val - p_test
     n_obs = int(hparams.batch_size / p_train)
     
-    dataset = np.zeros((n_obs, 10 * hparams.in_seq_len))
-    dataset[1:,0] = np.random.randn(n_obs-1)
-    for i in range(dataset.shape[1] - 1):
-        dataset[:,i+1] = dataset[:,i] + 2 * np.pi / hparams.in_seq_len
-
+    timescale = np.mgrid[0:n_obs,0:10*hparams.in_seq_len][1]
+    h_offset  = np.random.randn(n_obs, 1) * 10
+    h_offset[0] = 0
     if mode == 'random_frequency':
-        dataset *= np.random.uniform(0.3, 3, (n_obs, 1))
+        frequency = hparams.in_seq_len * np.random.uniform(1/3, 3, (n_obs, 1))
+    else:
+        frequency = np.full((n_obs, 1), hparams.in_seq_len)
 
+    dataset = (timescale + h_offset) * 2 * np.pi / frequency
     dataset = np.sin(dataset) + 1
     
     if normalise.find('random_scale') >= 0:
@@ -41,6 +43,10 @@ def load_data(hparams, mode='fixed_frequency', normalise='fixed_scale', shuffle=
         dataset += offset
     
     mask = np.ones_like(dataset)
+    
+    if add_time_embedding:
+        timescale = timescale % frequency + offset_time_embedding
+        dataset = np.dstack((dataset, timescale))
     
     # Split into training, validation and test datasets
     train, val, test = split(hparams, dataset, mask, normalise='global_max', isVerbose=isVerbose)
